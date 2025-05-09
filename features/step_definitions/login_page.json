@@ -33,5 +33,40 @@
     "ignore_digit": [],
     "context": [],
     "strategy": "basic"
+  },
+  "text_blinq_admin": {
+    "basic": [
+      {
+        "score": 181,
+        "css": "internal:text=\"blinq_admin\"i",
+        "priority": 1
+      },
+      {
+        "score": 186,
+        "css": "internal:text=\"blinq_admin\"s",
+        "priority": 1
+      },
+      {
+        "score": 355.5,
+        "css": "p >> internal:has-text=\"blinq_admin\"i",
+        "priority": 1
+      },
+      {
+        "score": 390.5,
+        "css": "p >> internal:has-text=/^blinq_admin$/",
+        "priority": 1
+      }
+    ],
+    "no_text": [
+      {
+        "css": "ul > li.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding:nth-child(2) > p.MuiTypography-root"
+      },
+      {
+        "css": ":root > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1)"
+      }
+    ],
+    "ignore_digit": [],
+    "context": [],
+    "strategy": "basic"
   }
 }

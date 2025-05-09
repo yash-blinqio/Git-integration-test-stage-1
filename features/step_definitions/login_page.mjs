@@ -14,6 +14,15 @@ const elements = {
     ],
     element_name: "blinq_admin listitem",
   },
+  text_blinq_admin: {
+    locators: [
+      { css: 'internal:text="blinq_admin"i', priority: 1 },
+      { css: 'internal:text="blinq_admin"s', priority: 1 },
+      { css: 'p >> internal:has-text="blinq_admin"i', priority: 1 },
+      { css: "p >> internal:has-text=/^blinq_admin$/", priority: 1 },
+    ],
+    element_name: "blinq_admin Text",
+  },
 };
 
 let context = null;
@@ -45,3 +54,18 @@ Given(
   { timeout: 60000 },
   the_user_clicks_on_the_blinq_admin_list_item_on_the_login_page
 );
+
+/**
+ * The user clicks on blinq_admin
+ * @recorder
+ * @path=/login
+ */
+async function the_user_clicks_on_blinq_admin() {
+  // source: recorder
+  // implemented_at: 2025-05-09T06:37:48.642Z
+  const _params = {};
+  // Click on blinq_admin Text
+  await context.web.click(elements["text_blinq_admin"], _params, null, this);
+}
+
+Given("The user clicks on blinq_admin", { timeout: 60000 }, the_user_clicks_on_blinq_admin);
