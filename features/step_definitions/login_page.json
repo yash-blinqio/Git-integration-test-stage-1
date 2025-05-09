@@ -1,0 +1,37 @@
+{
+  "listitem_blinq_admin": {
+    "basic": [
+      {
+        "score": 191,
+        "css": "internal:text=\"blinq_admin\"i >> xpath=..",
+        "priority": 1
+      },
+      {
+        "score": 196,
+        "css": "internal:text=\"blinq_admin\"s >> xpath=..",
+        "priority": 1
+      },
+      {
+        "score": 355.5,
+        "css": "li >> internal:has-text=\"blinq_admin\"i",
+        "priority": 1
+      },
+      {
+        "score": 390.5,
+        "css": "li >> internal:has-text=/^blinq_admin$/",
+        "priority": 1
+      }
+    ],
+    "no_text": [
+      {
+        "css": "ul > li.MuiListItem-root.MuiListItem-gutters.MuiListItem-padding:nth-child(2)"
+      },
+      {
+        "css": ":root > :nth-child(2) > :nth-child(1) > :nth-child(1) > :nth-child(2) > :nth-child(2) > :nth-child(1) > :nth-child(2) > :nth-child(2)"
+      }
+    ],
+    "ignore_digit": [],
+    "context": [],
+    "strategy": "basic"
+  }
+}

@@ -33,20 +33,21 @@ After(async function (scenario) {
 
 BeforeStep(async function (step) {
   if (context) {
-    await context.web.beforeStep(this, step);
+    await context.stable.beforeStep(this, step);
   }
 });
 
 AfterStep(async function (step) {
   if (context) {
-    await context.web.afterStep(this, step);
+    await context.stable.afterStep(this, step);
   }
 });
+
 
 /**
  * Load test data for a user
  * @param {string} user name of the user to load test data for
- * @protect
+ * @returns
  */
 async function loadUserData(user) {
   await context.web.loadTestDataAsync("users", user, this);
@@ -69,7 +70,7 @@ Then("Verify the text {string} can be found in the page", verifyTextExistsInPage
  * @protect
  */
 async function clickOnElement(elementDescription) {
-  await context.web.simpleClick(elementDescription, null, null, this);
+  await context.stable.simpleClick(elementDescription, null, null, this);
 }
 When("click on {string}", clickOnElement);
 When("click {string}", clickOnElement);
@@ -83,15 +84,11 @@ When("Click {string}", clickOnElement);
  * @protect
  */
 async function fillElement(elementDescription, value) {
-  await context.web.simpleClickType(elementDescription, value, null, null, this);
+  await context.stable.simpleClickType(elementDescription, value, null, null, this);
 }
 When("fill {string} with {string}", fillElement);
 When("Fill {string} with {string}", fillElement);
-/**
- * Verify text does not exist in page
- * @param {string} text the text to verify does not exist in page
- * @protect
- */
+
 async function verifyTextNotExistsInPage(text) {
   await context.web.waitForTextToDisappear(text, null, this);
 }
@@ -149,7 +146,6 @@ Then(
 async function runBrunoRequest(requestName) {
   await executeBrunoRequest(requestName, {}, context, this);
 }
-
 When("bruno - {string}", runBrunoRequest);
 
 /**
@@ -164,3 +160,6 @@ async function verify_the_downloaded_file_exists(fileName) {
 }
 
 Then("Verify the file {string} exists", { timeout: 60000 }, verify_the_downloaded_file_exists);
+
+When("Noop", async function(){})
+
